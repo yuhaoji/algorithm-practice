@@ -22,6 +22,7 @@ public class Ch11 {
         题目:
         Implement an algorithm to determine if a string has all unique characters. What if you
         can not use additional data structures?
+        判断一个字符串中的所有字符是否都是不重复的
      */
 
     public static void main(String[] args) {
