@@ -24,10 +24,33 @@ public class Ch13 {
         消除字符中重复的字符,不能使用额外的空间
      */
 
+    //O(n2)
     public static String removeDuplicateChar(String str) {
-        if (str.length() <= 1) {
+        int length = str.length();
+        if (length <= 1) {
             return str;
         }
-        return "";
+        char[] result = new char[str.length()];
+        int index = 0;
+        for (int i = 0; i < length; i++) {
+            int j = i - 1;
+            for (; j >= 0; j--) {
+                if (str.charAt(i) == str.charAt(j)) {
+                    break;
+                }
+            }
+            if (j < 0) {
+                result[index] = str.charAt(i);
+                index++;
+            }
+        }
+        return new String(result).trim();
     }
+
+    public static void main(String[] args) {
+        String test = "aa";
+        String result = removeDuplicateChar(test);
+        System.out.println(result);
+    }
+
 }
