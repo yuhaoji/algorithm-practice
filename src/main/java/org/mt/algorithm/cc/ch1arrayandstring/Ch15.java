@@ -45,12 +45,6 @@ public class Ch15 {
         return new String(newChars);
     }
 
-    public static String replaceBlankSimplified(String str) {
-        if (str == null) {
-            return null;
-        }
-    }
-
     public static void main(String[] args) {
         String test = "   ";
         System.out.println(replaceBlank(test));

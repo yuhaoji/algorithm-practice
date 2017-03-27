@@ -48,7 +48,7 @@ public class Ch13 {
     }
 
     public static void main(String[] args) {
-        String test = "aa";
+        String test = "aabacb";
         String result = removeDuplicateChar(test);
         System.out.println(result);
     }
