@@ -37,6 +37,30 @@ public class No2AddTwoNumbers {
         }
     }
 
+    public static ListNode method2(ListNode l1, ListNode l2) {
+        int sum = 0;
+        ListNode first = new ListNode(0);
+        ListNode before = first;
+        while (l1 != null || l2 != null) {
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            ListNode newNode = new ListNode(sum % 10);
+            before.next = newNode;
+            before = newNode;
+            sum /= 10;
+        }
+        if (sum > 0) {
+            before.next = new ListNode(sum);
+        }
+        return first.next;
+    }
+
     //最普通的方式
     public static ListNode method1(ListNode l1, ListNode l2) {
         int size1 = getSize(l1);
@@ -105,7 +129,7 @@ public class No2AddTwoNumbers {
     public static void main(String[] args) {
         ListNode l1 = buildListNode(Arrays.asList(2,4,3));
         ListNode l2 = buildListNode(Arrays.asList(5,6,4));
-        ListNode l3 = method1(l1, l2);
+        ListNode l3 = method2(l1, l2);
         printListNode(l3);
     }
 
